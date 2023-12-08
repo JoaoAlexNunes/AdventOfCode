@@ -33,7 +33,7 @@ The repository is organized by year, and each year contains a folder for each da
         - part-2.py
         - input.txt
     ...
-
+```
 ## Getting Started
 
 1. **Clone the repository to your local machine:**
