@@ -33,3 +33,23 @@ The repository is organized by year, and each year contains a folder for each da
         - part-2.py
         - input.txt
     ...
+
+## Getting Started
+
+1. **Clone the repository to your local machine:**
+
+    ```bash
+    git clone https://github.com/your-username/AoC-solutions.git
+    ```
+
+2. **Navigate to the desired year and day folder.**
+
+3. **Run the solution code using your preferred programming language.**
+
+## Usage
+
+Feel free to explore the solutions, learn from the code, and share your own solutions. If you have suggestions for improvements or alternative solutions, open an issue or submit a pull request.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
