@@ -1,6 +1,6 @@
 # Advent of Code (AoC) Solutions
 
-![AoC Banner](aoc.jpeg)
+![AoC Banner](aoc.jpg)
 
 This repository contains my solutions to the Advent of Code challenges. Advent of Code is an annual event with daily coding puzzles that are released from December 1st to December 25th.
 
