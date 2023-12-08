@@ -1,6 +1,6 @@
 # Advent of Code (AoC) Solutions
 
-![AoC Banner](aoc.jpg)
+![AoC Banner](img/aoc.jpg)
 
 This repository contains my solutions to the Advent of Code challenges. Advent of Code is an annual event with daily coding puzzles that are released from December 1st to December 25th.
 
@@ -34,13 +34,14 @@ The repository is organized by year, and each year contains a folder for each da
         - input.txt
     ...
 ```
+
 ## Getting Started
 
 1. **Clone the repository to your local machine:**
 
-    ```bash
-    git clone https://github.com/your-username/AoC-solutions.git
-    ```
+   ```bash
+   git clone https://github.com/your-username/AoC-solutions.git
+   ```
 
 2. **Navigate to the desired year and day folder.**
 
