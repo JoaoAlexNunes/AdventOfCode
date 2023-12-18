@@ -1,7 +1,7 @@
 <!-- No Input Files-->
-day-0*/input.txt
+Haskell/day-0*/input.txt
 
 <!--Ignore Cabal Files -->
-day-0*/LICENSE
-day-0*/CHANGELOG.md
-day-0*/dist-*
+Haskell/day-0*/LICENSE
+Haskell/day-0*/CHANGELOG.md
+Haskell/day-0*/dist-*
