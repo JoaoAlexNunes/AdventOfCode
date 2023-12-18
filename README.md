@@ -24,15 +24,14 @@ The repository is organized by year, and each year contains a folder for each da
 
 ```plaintext
 /AoC-YYYY
-    /day-01
-        - part-1.py
-        - part-2.py
-        - input.txt
-    /day-02
-        - part-1.py
-        - part-2.py
-        - input.txt
-    ...
+    /Haskell
+        /day-01
+            - Main.hs
+        /day-02
+            /app
+                - Main.hs
+            - day02.cabal
+        ...
 ```
 
 ## Getting Started
