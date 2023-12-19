@@ -8,5 +8,4 @@ Haskell/day-0*/dist-*
 
 
 <!-- Ignore shell script -->
-ctemplate.sh
-hstemplate.sh
+*.sh
