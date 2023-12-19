@@ -1,5 +1,8 @@
 <!-- No Input Files-->
-Haskell/day-0*/input.txt
+Haskell/day-**/input.txt
+C/day-**/input.txt
+
+C/day-01/input.txt
 
 <!--Ignore Cabal Files -->
 Haskell/day-0*/LICENSE
