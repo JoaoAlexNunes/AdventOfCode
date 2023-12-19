@@ -7,6 +7,8 @@ Haskell/day-0*/LICENSE
 Haskell/day-0*/CHANGELOG.md
 Haskell/day-0*/dist-*
 
+<!-- Ingore C out files-->
+C/day-**/a.out
 
 <!-- Ignore shell script -->
 scripts
