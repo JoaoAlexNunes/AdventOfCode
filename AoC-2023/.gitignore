@@ -8,4 +8,4 @@ Haskell/day-0*/dist-*
 
 
 <!-- Ignore shell script -->
-*.sh
+scripts
