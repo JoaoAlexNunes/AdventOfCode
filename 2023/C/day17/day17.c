@@ -1,17 +1,18 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+//DEFINES
 #define TEST_FILE "testinput.txt"
 #define INPUT_FILE "input.txt"
 
 // Function prototypes
 int part1(char* contents);
 int part2(char* contents);
-char *read_from_file(char *filename);
+char *readFile(char *filename);
 
 int main() {
-    char *contents = read_from_file(TEST_FILE);
-    // char *contents = read_from_file(INPUT_FILE);
+    char *contents = readFile(TEST_FILE);
+    // char *contents = readFile(INPUT_FILE);
     // printf("%s\n", contents);
 
     // Calculate results for Part One and Part Two
@@ -20,7 +21,8 @@ int main() {
 
     // Output the results
     printf("(%d,%d)\n", resultPart1, resultPart2);
-
+    
+    free(contents);
     return 0;
 }
 
@@ -37,7 +39,7 @@ int part2(char* contents) {
 }
 
 // Implementation for prepare function
-char *read_from_file(char *filename){
+char *readFile(char *filename){
     FILE *file = fopen(filename, "r");
     fseek(file, 0, SEEK_END);
     int length = ftell(file);

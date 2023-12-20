@@ -10,19 +10,19 @@
 // Function prototypes
 int part1(char *contents);
 int part2(char *contents);
-char *read_from_file(char *filename);
+char *readFile(char *filename);
 
 // Part 1
 typedef struct
 {
     char num;
-    int is_initted;
+    int isInitialized;
 } Num;
 
 int main()
 {
-    char *contents = read_from_file(TEST_FILE);
-    // char *contents = read_from_file(INPUT_FILE);
+    char *contents = readFile(TEST_FILE);
+    // char *contents = readFile(INPUT_FILE);
     //  printf("%s\n", contents);
 
     // Calculate results for Part One and Part Two
@@ -32,6 +32,9 @@ int main()
     // Output the results
     printf("(%d,%d)\n", resultPart1, resultPart2);
 
+    // Free contents
+    free(contents);
+
     return 0;
 }
 
@@ -39,10 +42,10 @@ int main()
 int part1(char *contents)
 {
     Num first = {
-        .is_initted = 0,
+        .isInitialized = 0,
     };
     Num last = {
-        .is_initted = 0,
+        .isInitialized = 0,
     };
 
     int total = 0;
@@ -51,9 +54,9 @@ int part1(char *contents)
     {
         if (isdigit(contents[i]))
         {
-            if (first.is_initted == 0)
+            if (first.isInitialized == 0)
             {
-                first.is_initted = 1;
+                first.isInitialized = 1;
                 first.num = contents[i] - '0';
             }
             last.num = contents[i] - '0';
@@ -63,8 +66,8 @@ int part1(char *contents)
         {
             printf("%d\n", first.num);
             total += (first.num * 10) + last.num;
-            first.is_initted = 0;
-            last.is_initted = 0;
+            first.isInitialized = 0;
+            last.isInitialized = 0;
         }
     }
     return total;
@@ -78,7 +81,7 @@ int part2(char *contents)
 }
 
 // Implementation for prepare function
-char *read_from_file(char *filename)
+char *readFile(char *filename)
 {
     FILE *file = fopen(filename, "r");
     fseek(file, 0, SEEK_END);
