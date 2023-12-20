@@ -17,18 +17,18 @@ typedef struct
     int isInitialized;
 } Num;
 
-struct Mapnumbers
+typedef struct
 {
     const char *word;
     int value;
-};
+} Mapnumbers;
 
 // Function prototypes
 int part1(char *contents);
 int part2(char *contents);
 char *readFile(char *filename);
-int isInNumbers(char *word, int length, struct Mapnumbers *map);
-int isWordNumeric(char *buffer, size_t buffer_index, struct Mapnumbers *map);
+int isInNumbers(char *word, int length, Mapnumbers *map);
+int isWordNumeric(char *buffer, size_t buffer_index, Mapnumbers *map);
 
 // Funtions
 int main()
@@ -58,6 +58,7 @@ char *readFile(char *filename)
     char *contents = malloc(sizeof(char) * length + 1);
     fread(contents, 1, length, file);
     contents[length] = '\0';
+    fclose(file);
     return contents;
 }
 
@@ -105,7 +106,7 @@ int part2(char *contents)
         .isInitialized = 0,
     };
 
-    struct Mapnumbers map[NUMBERS] = {
+    Mapnumbers map[NUMBERS] = {
         {"one", 1},
         {"two", 2},
         {"three", 3},
@@ -153,7 +154,7 @@ int part2(char *contents)
     return total;
 }
 
-int isInNumbers(char *word, int length, struct Mapnumbers *map)
+int isInNumbers(char *word, int length, Mapnumbers *map)
 {
     word[length] = '\0';
     for (size_t i = 0; i < NUMBERS; i++)
@@ -166,7 +167,7 @@ int isInNumbers(char *word, int length, struct Mapnumbers *map)
     return 0;
 }
 
-int isWordNumeric(char *buffer, size_t buffer_index, struct Mapnumbers *map)
+int isWordNumeric(char *buffer, size_t buffer_index, Mapnumbers *map)
 {
     char *num_word = malloc(sizeof(char) * MAX_LENGTH);
     for (size_t i = 0; i < MAX_LENGTH; i++)
@@ -176,8 +177,10 @@ int isWordNumeric(char *buffer, size_t buffer_index, struct Mapnumbers *map)
         int value = isInNumbers(num_word, i + 1, map);
         if (value != 0)
         {
+            free(num_word);
             return value;
         }
     }
+    free(num_word);
     return 0;
 }
