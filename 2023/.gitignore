@@ -1,6 +1,8 @@
 <!-- No Input Files-->
 Haskell/day-**/input.txt
-C/day-**/input.txt
+C/day**/input.txt
+C/day**/testinput.txt
+
 
 <!--Ignore Cabal Files -->
 Haskell/day-0*/LICENSE
@@ -8,7 +10,7 @@ Haskell/day-0*/CHANGELOG.md
 Haskell/day-0*/dist-*
 
 <!-- Ingore C out files-->
-C/day-**/a.out
+C/day**/a.out
 
 <!-- Ignore shell script -->
 scripts
