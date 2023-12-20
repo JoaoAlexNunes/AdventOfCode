@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <string.h>
-#include <assert.h>
 
 // Defines
 #define TEST_FILE "testinput.txt"
