@@ -1,13 +1,13 @@
 <!-- No Input Files-->
-Haskell/day-**/input.txt
+Haskell/day**/input.txt
 C/day**/input.txt
 C/day**/testinput.txt
 
 
 <!--Ignore Cabal Files -->
-Haskell/day-0*/LICENSE
-Haskell/day-0*/CHANGELOG.md
-Haskell/day-0*/dist-*
+Haskell/day**/LICENSE
+Haskell/day**/CHANGELOG.md
+Haskell/day**/dist-*
 
 <!-- Ingore C out files-->
 C/day**/a.out
