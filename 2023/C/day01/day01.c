@@ -22,10 +22,13 @@ typedef struct
     int value;
 } Mapnumbers;
 
-// Function prototypes
+// Main Functions prototypes
+char *readFile(char *filename);
 int part1(char *contents);
 int part2(char *contents);
-char *readFile(char *filename);
+
+// Helper Functions prototypes
+void processDigit(char ch, Num *first, Num *last, int *total);
 int isInNumbers(char *word, int length, Mapnumbers *map);
 int isWordNumeric(char *buffer, size_t buffer_index, Mapnumbers *map);
 
@@ -61,6 +64,26 @@ char *readFile(char *filename)
     return contents;
 }
 
+void processDigit(char ch, Num *first, Num *last, int *total)
+{
+    if (isdigit(ch))
+    {
+        if (first->isInitialized == 0)
+        {
+            first->isInitialized = 1;
+            first->num = ch - '0';
+        }
+        last->num = ch - '0';
+    }
+
+    if (ch == '\n')
+    {
+        *total += (first->num * 10) + last->num;
+        first->isInitialized = 0;
+        last->isInitialized = 0;
+    }
+}
+
 // Implementation for part1 function
 int part1(char *contents)
 {
@@ -75,22 +98,7 @@ int part1(char *contents)
 
     for (size_t i = 0; contents[i] != '\0'; i++)
     {
-        if (isdigit(contents[i]))
-        {
-            if (first.isInitialized == 0)
-            {
-                first.isInitialized = 1;
-                first.num = contents[i] - '0';
-            }
-            last.num = contents[i] - '0';
-        }
-
-        if (contents[i] == '\n')
-        {
-            total += (first.num * 10) + last.num;
-            first.isInitialized = 0;
-            last.isInitialized = 0;
-        }
+        processDigit(contents[i], &first, &last, &total);
     }
     return total;
 }
@@ -134,21 +142,7 @@ int part2(char *contents)
                 last.num = value;
             }
         }
-        if (isdigit(contents[i]))
-        {
-            if (first.isInitialized == 0)
-            {
-                first.isInitialized = 1;
-                first.num = contents[i] - '0';
-            }
-            last.num = contents[i] - '0';
-        }
-        if (contents[i] == '\n')
-        {
-            total += (first.num * 10) + last.num;
-            first.isInitialized = 0;
-            last.isInitialized = 0;
-        }
+        processDigit(contents[i], &first, &last, &total);
     }
     return total;
 }
