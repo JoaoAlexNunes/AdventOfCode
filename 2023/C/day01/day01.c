@@ -10,13 +10,6 @@
 #define NUMBERS 9
 #define MAX_LENGTH 5
 
-// Function prototypes
-int part1(char *contents);
-int part2(char *contents);
-char *readFile(char *filename);
-int isInNumbers(char *word, int length);
-int isWordNumeric(char *buffer, size_t buffer_index);
-
 // Structures
 typedef struct
 {
@@ -24,17 +17,18 @@ typedef struct
     int isInitialized;
 } Num;
 
-char *numbers[NUMBERS][2] = {
-    {"one", "1"},
-    {"two", "2"},
-    {"three", "3"},
-    {"four", "4"},
-    {"five", "5"},
-    {"six", "6"},
-    {"seven", "7"},
-    {"eight", "8"},
-    {"nine", "9"},
+struct Mapnumbers
+{
+    const char *word;
+    int value;
 };
+
+// Function prototypes
+int part1(char *contents);
+int part2(char *contents);
+char *readFile(char *filename);
+int isInNumbers(char *word, int length, struct Mapnumbers *map);
+int isWordNumeric(char *buffer, size_t buffer_index, struct Mapnumbers *map);
 
 // Funtions
 int main()
@@ -111,21 +105,33 @@ int part2(char *contents)
         .isInitialized = 0,
     };
 
+    struct Mapnumbers map[NUMBERS] = {
+        {"one", 1},
+        {"two", 2},
+        {"three", 3},
+        {"four", 4},
+        {"five", 5},
+        {"six", 6},
+        {"seven", 7},
+        {"eight", 8},
+        {"nine", 9},
+    };
+
     int total = 0;
 
     for (size_t i = 0; contents[i] != '\0'; i++)
     {
         if (isalpha(contents[i]))
         {
-            int value = isWordNumeric(contents, i);
+            int value = isWordNumeric(contents, i, map);
             if (value != 0)
             {
                 if (first.isInitialized == 0)
                 {
                     first.isInitialized = 1;
-                    first.num = (value + '0') - '0';
+                    first.num = value;
                 }
-                last.num = (value + '0') - '0';
+                last.num = value;
             }
         }
         if (isdigit(contents[i]))
@@ -147,27 +153,27 @@ int part2(char *contents)
     return total;
 }
 
-int isInNumbers(char *word, int length)
+int isInNumbers(char *word, int length, struct Mapnumbers *map)
 {
     word[length] = '\0';
     for (size_t i = 0; i < NUMBERS; i++)
     {
-        if (strcmp(numbers[i][0], word) == 0)
+        if (strcmp(map[i].word, word) == 0)
         {
-            return atoi(numbers[i][1]);
+            return map[i].value;
         }
     }
     return 0;
 }
 
-int isWordNumeric(char *buffer, size_t buffer_index)
+int isWordNumeric(char *buffer, size_t buffer_index, struct Mapnumbers *map)
 {
     char *num_word = malloc(sizeof(char) * MAX_LENGTH);
     for (size_t i = 0; i < MAX_LENGTH; i++)
     {
         num_word[i] = buffer[buffer_index];
         buffer_index++;
-        int value = isInNumbers(num_word, i + 1);
+        int value = isInNumbers(num_word, i + 1, map);
         if (value != 0)
         {
             return value;
