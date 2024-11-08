@@ -1,0 +1,16 @@
+<!-- No Input Files-->
+20*/Haskell/day*/input.txt
+20*/C/day*/input.txt
+20*/C/day*/testinput.txt
+
+
+<!--Ignore Cabal Files -->
+20*/Haskell/day*/LICENSE
+20*/Haskell/day*/CHANGELOG.md
+20*/Haskell/day*/dist-*
+
+<!-- Ingore C out files-->
+20*/C/day*/a.out
+
+<!-- Ignore shell script -->
+20*/scripts
