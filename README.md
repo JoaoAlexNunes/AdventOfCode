@@ -23,15 +23,13 @@ For more information and to participate, visit the [Advent of Code website](http
 The repository is organized by year, and each year contains a folder for each day of the Advent of Code event. Inside each day's folder, you'll find the solution code and any additional resources or notes.
 
 ```plaintext
-/AoC-YYYY
-    /Haskell
-        /day-01
-            - Main.hs
-        /day-02
-            /app
-                - Main.hs
-            - day02.cabal
-        ...
+/YYYY
+    /day-01
+        - main.go
+    /day-02
+        - main.go
+            
+    ...
 ```
 
 ## Getting Started
